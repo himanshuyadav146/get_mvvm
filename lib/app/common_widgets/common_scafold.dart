@@ -24,7 +24,13 @@ class CommonScaffold extends StatelessWidget {
     return Scaffold(
       appBar: isAppBar
           ? AppBar(
-              title: Text(title),
+              title: Text(
+                title,
+                style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
               actions: actions,
             )
           : null,

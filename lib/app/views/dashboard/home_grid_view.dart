@@ -37,35 +37,37 @@ class GridSelectionScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.0),
                         ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            ClipRRect(
-                              borderRadius: const BorderRadius.vertical(
-                                top: Radius.circular(12.0),
-                              ),
-                              child: Image.asset(
-                                item.isSelected
-                                    ? gridViewModel.selectedImage
-                                    : item.image,
-                                height: 120.0,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            SizedBox(height: 8.0),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8.0),
-                              child: Text(
-                                item.text,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.bold,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              ClipRRect(
+                                borderRadius: const BorderRadius.vertical(
+                                  top: Radius.circular(12.0),
+                                ),
+                                child: Image.asset(
+                                  item.isSelected
+                                      ? gridViewModel.selectedImage
+                                      : item.image,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
-                            ),
-                          ],
+                              SizedBox(height: 8.0),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: Text(
+                                  item.text,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     );
@@ -73,12 +75,14 @@ class GridSelectionScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 16.0),
-            CommonButton(
-                text: 'Next',
-                onPressed: () {
-                  Get.toNamed('/persional_info');
-                }),
+            SizedBox(
+              width: double.infinity,
+              child: CommonButton(
+                  text: 'Next',
+                  onPressed: () {
+                    Get.toNamed('/persional_info');
+                  }),
+            ),
           ],
         ),
       ),

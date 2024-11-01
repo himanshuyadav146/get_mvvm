@@ -19,6 +19,8 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: Get.find<ThemeService>().themeMode,
+      defaultTransition: Transition.rightToLeft,
+      transitionDuration: const Duration(milliseconds: 300),
     );
   }
 }
