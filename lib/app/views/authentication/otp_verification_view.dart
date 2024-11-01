@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_mvvm/app/common_widgets/common_button.dart';
-import 'package:getx_mvvm/app/common_widgets/common_scafold.dart';
 
 import '../../viewmodels/auth_viewmodel.dart';
 
@@ -10,125 +9,126 @@ class OtpVerificationView extends StatelessWidget {
   final TextEditingController otp2Controller = TextEditingController();
   final TextEditingController otp3Controller = TextEditingController();
   final TextEditingController otp4Controller = TextEditingController();
+  final PageController pageController;
+
+  OtpVerificationView({required this.pageController, super.key});
 
   @override
   Widget build(BuildContext context) {
     final AuthViewModel authViewModel = Get.find();
 
-    return CommonScaffold(
-      title: 'Verify OTP',
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),
+    return Column(
+      children: [
+        SizedBox(
+          height: 18,
+        ),
+        Align(
+          alignment: Alignment.topLeft,
+          child: IconButton(
+            icon: Icon(Icons.arrow_back, color: Colors.black),
+            onPressed: () {
+              pageController.previousPage(
+                duration: Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+              );
+            },
+          ),
+        ),
+        Container(
+          width: 200,
+          height: 200,
+          decoration: BoxDecoration(
+            color: Colors.deepPurple.shade50,
+            shape: BoxShape.circle,
+          ),
+          child: Image.asset(
+            'assets/images/illustration-3.png',
+          ),
+        ),
+        SizedBox(
+          height: 24,
+        ),
+        Text(
+          'Verification',
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Text(
+          "Enter your OTP code number",
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+            color: Colors.black38,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        SizedBox(
+          height: 28,
+        ),
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12),
+          ),
           child: Column(
             children: [
-              SizedBox(
-                height: 18,
-              ),
-              Container(
-                width: 200,
-                height: 200,
-                decoration: BoxDecoration(
-                  color: Colors.deepPurple.shade50,
-                  shape: BoxShape.circle,
-                ),
-                child: Image.asset(
-                  'assets/images/illustration-3.png',
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _textFieldOTP(first: true, last: false, context: context),
+                  _textFieldOTP(first: false, last: false, context: context),
+                  _textFieldOTP(first: false, last: false, context: context),
+                  _textFieldOTP(first: false, last: true, context: context),
+                ],
               ),
               SizedBox(
-                height: 24,
+                height: 22,
               ),
-              Text(
-                'Verification',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Enter your OTP code number",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black38,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 28,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        _textFieldOTP(
-                            first: true, last: false, context: context),
-                        _textFieldOTP(
-                            first: false, last: false, context: context),
-                        _textFieldOTP(
-                            first: false, last: false, context: context),
-                        _textFieldOTP(
-                            first: false, last: true, context: context),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 22,
-                    ),
-                    Obx(() {
-                      return authViewModel.isLoading.value
-                          ? const CircularProgressIndicator()
-                          : SizedBox(
-                              width: double.infinity,
-                              child: CommonButton(
-                                text: 'Verify OTP',
-                                onPressed: () {
-                                  authViewModel.verifyOtp('123456');
-                                },
-                              ));
-                    }),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 18,
-              ),
-              Text(
-                "Didn't you receive any code?",
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black38,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 18,
-              ),
-              Text(
-                "Resend New Code",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.purple,
-                ),
-                textAlign: TextAlign.center,
-              ),
+              Obx(() {
+                return authViewModel.isLoading.value
+                    ? const CircularProgressIndicator()
+                    : SizedBox(
+                        width: double.infinity,
+                        child: CommonButton(
+                          text: 'Verify OTP',
+                          onPressed: () {
+                            authViewModel.verifyOtp('123456');
+                          },
+                        ));
+              }),
             ],
           ),
         ),
-      ),
-      isDrawer: false,
-      isResizeToAvoidBottomInset: true,
+        SizedBox(
+          height: 18,
+        ),
+        Text(
+          "Didn't you receive any code?",
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+            color: Colors.black38,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        SizedBox(
+          height: 18,
+        ),
+        Text(
+          "Resend New Code",
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.purple,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
     );
   }
 
