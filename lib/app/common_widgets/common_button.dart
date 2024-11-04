@@ -25,40 +25,44 @@ class CommonButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: isLoading ? null : onPressed,
-      style: ElevatedButton.styleFrom(
-        foregroundColor: textColor ?? Colors.white,
-        backgroundColor: backgroundColor ?? Theme.of(context).primaryColor,
-        padding: padding ?? EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        //  shape: shape ?? ShapeBorder(),
-      ),
-      child: isLoading
-          ? SizedBox(
-              height: 20,
-              width: 20,
-              child: CircularProgressIndicator(
-                valueColor:
-                    AlwaysStoppedAnimation<Color>(textColor ?? Colors.white),
-                strokeWidth: 2,
-              ),
-            )
-          : icon != null
-              ? Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    icon!,
-                    SizedBox(width: 8),
-                    Text(
-                      text,
-                      style: TextStyle(fontSize: fontSize ?? 16),
-                    ),
-                  ],
-                )
-              : Text(
-                  text,
-                  style: TextStyle(fontSize: fontSize ?? 16),
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: isLoading ? null : onPressed,
+        style: ElevatedButton.styleFrom(
+          foregroundColor: textColor ?? Colors.white,
+          backgroundColor: backgroundColor ?? Theme.of(context).primaryColor,
+          padding:
+              padding ?? EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          //  shape: shape ?? ShapeBorder(),
+        ),
+        child: isLoading
+            ? SizedBox(
+                height: 20,
+                width: 20,
+                child: CircularProgressIndicator(
+                  valueColor:
+                      AlwaysStoppedAnimation<Color>(textColor ?? Colors.white),
+                  strokeWidth: 2,
                 ),
+              )
+            : icon != null
+                ? Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      icon!,
+                      SizedBox(width: 8),
+                      Text(
+                        text,
+                        style: TextStyle(fontSize: fontSize ?? 16),
+                      ),
+                    ],
+                  )
+                : Text(
+                    text,
+                    style: TextStyle(fontSize: fontSize ?? 16),
+                  ),
+      ),
     );
   }
 }

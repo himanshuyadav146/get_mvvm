@@ -75,14 +75,11 @@ class GridSelectionScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              width: double.infinity,
-              child: CommonButton(
-                  text: 'Next',
-                  onPressed: () {
-                    Get.toNamed('/persional_info');
-                  }),
-            ),
+            CommonButton(
+                text: 'Next',
+                onPressed: () {
+                  Get.toNamed('/important_details');
+                }),
           ],
         ),
       ),

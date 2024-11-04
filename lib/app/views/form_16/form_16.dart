@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_mvvm/app/common_widgets/common_scafold.dart';
 
+import '../../common_widgets/common_button.dart';
 import '../../common_widgets/common_upload_card.dart';
 import '../../viewmodels/form_16/upload_view_model.dart';
 
@@ -9,10 +11,8 @@ class UploadForm16 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Upload Files'),
-      ),
+    return CommonScaffold(
+      title: 'Upload Files',
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -46,9 +46,16 @@ class UploadForm16 extends StatelessWidget {
                 );
               }),
             ),
+            CommonButton(
+                text: 'Next',
+                onPressed: () {
+                  Get.toNamed('/persional_info');
+                }),
           ],
         ),
       ),
+      isDrawer: false,
+      isResizeToAvoidBottomInset: false,
     );
   }
 }
