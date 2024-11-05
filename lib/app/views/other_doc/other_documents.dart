@@ -52,7 +52,7 @@ class OtherDocuments extends StatelessWidget {
             CommonButton(
                 text: 'Next',
                 onPressed: () {
-                  Get.toNamed('/important_details');
+                  Get.toNamed('/payments_details');
                 }),
           ],
         ),
