@@ -32,8 +32,8 @@ class CommonButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           foregroundColor: textColor ?? Colors.white,
           backgroundColor: backgroundColor ?? Theme.of(context).primaryColor,
-          padding:
-              padding ?? EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          padding: padding ??
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           //  shape: shape ?? ShapeBorder(),
         ),
         child: isLoading

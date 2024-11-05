@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_mvvm/app/common_widgets/common_scafold.dart';
 
 import '../../common_widgets/common_button.dart';
+import '../../common_widgets/common_scafold.dart';
 import '../../common_widgets/common_upload_card.dart';
-import '../../viewmodels/form_16/upload_view_model.dart';
+import '../../viewmodels/other_doc/other_documents_viewmodel.dart';
 
-class UploadForm16 extends StatelessWidget {
-  final UploadController uploadController = Get.put(UploadController());
+class OtherDocuments extends StatelessWidget {
+  final UploadOtherDocumentsController uploadController =
+      Get.put(UploadOtherDocumentsController());
+
+  OtherDocuments({super.key});
 
   @override
   Widget build(BuildContext context) {
     return CommonScaffold(
-      title: 'Upload form-16',
+      title: 'Upload Other Documents',
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

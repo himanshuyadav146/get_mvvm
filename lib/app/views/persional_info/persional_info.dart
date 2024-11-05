@@ -12,7 +12,7 @@ class FinancialFormScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CommonScaffold(
-      title: 'Financial Information',
+      title: 'Personal Information',
       isDrawer: false,
       isResizeToAvoidBottomInset: true,
       body: SingleChildScrollView(

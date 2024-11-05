@@ -19,9 +19,10 @@ final ThemeData lightTheme = ThemeData(
     bodyMedium: TextStyle(color: Colors.black),
     bodySmall: TextStyle(color: Colors.black),
   ),
-  appBarTheme: const AppBarTheme(
-    color: const Color(0xffffffff),
-    titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
+  appBarTheme: AppBarTheme(
+    color: Color(0xff6468F6),
+    titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
+    iconTheme: const IconThemeData(color: Colors.white),
   ),
 );
 

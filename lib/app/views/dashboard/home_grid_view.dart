@@ -78,7 +78,7 @@ class GridSelectionScreen extends StatelessWidget {
             CommonButton(
                 text: 'Next',
                 onPressed: () {
-                  Get.toNamed('/important_details');
+                  Get.toNamed('/persional_info');
                 }),
           ],
         ),

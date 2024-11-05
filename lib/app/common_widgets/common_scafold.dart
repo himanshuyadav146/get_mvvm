@@ -26,10 +26,6 @@ class CommonScaffold extends StatelessWidget {
           ? AppBar(
               title: Text(
                 title,
-                style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
               ),
               actions: actions,
             )
@@ -43,6 +39,7 @@ class CommonScaffold extends StatelessWidget {
         ],
       ),
       floatingActionButton: floatingActionButton,
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
     );
   }
 
@@ -51,7 +48,7 @@ class CommonScaffold extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          DrawerHeader(
+          const DrawerHeader(
             decoration: BoxDecoration(
               color: Colors.blue,
             ),
