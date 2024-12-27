@@ -141,9 +141,8 @@ Widget _buildPhoneNumberPage(AuthViewModel authViewModel) {
   final TextEditingController phoneController = TextEditingController();
   return Column(
     children: [
-      Hero(
-        tag: 'profileImage',
-        // Use the same tag as in FullScreenImageDialog
+      Padding(
+        padding: EdgeInsets.only(top: 30.0),
         child: Container(
           width: 200,
           height: 200,

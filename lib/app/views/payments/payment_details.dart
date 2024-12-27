@@ -77,7 +77,7 @@ class PaymentPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Payment Summary',
+        const Text('Payment Summary',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
         SizedBox(height: 8.0),
 

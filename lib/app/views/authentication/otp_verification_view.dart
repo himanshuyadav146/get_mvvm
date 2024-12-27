@@ -78,7 +78,7 @@ class OtpVerificationView extends StatelessWidget {
           child: Column(
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   _textFieldOTP(first: true, last: false, context: context),
                   _textFieldOTP(first: false, last: false, context: context),
@@ -135,7 +135,7 @@ class OtpVerificationView extends StatelessWidget {
   Widget _textFieldOTP(
       {required bool first, last, required BuildContext context}) {
     return Container(
-      height: 85,
+      height: 60,
       child: AspectRatio(
         aspectRatio: 1.0,
         child: TextField(
