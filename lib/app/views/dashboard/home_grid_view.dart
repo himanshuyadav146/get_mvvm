@@ -20,7 +20,7 @@ class GridSelectionScreen extends StatelessWidget {
               child: Obx(
                 () => GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, // 2 cards per row
+                    crossAxisCount: 1, // 2 cards per row
                     crossAxisSpacing: 8.0,
                     mainAxisSpacing: 8.0,
                     childAspectRatio: 3 / 4, // Aspect ratio for the cards

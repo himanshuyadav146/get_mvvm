@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:getx_mvvm/app/theme/color_manager.dart';
 
 final ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
-  primaryColor: const Color(0xff6468F6),
-  hintColor: const Color(0xdd03298a),
+  primaryColor: ColorManager.primary,
+  hintColor: ColorManager.hint,
   scaffoldBackgroundColor: const Color(0xffffffff),
   textTheme: const TextTheme(
     displayLarge: TextStyle(color: Colors.black),
@@ -20,7 +21,7 @@ final ThemeData lightTheme = ThemeData(
     bodySmall: TextStyle(color: Colors.black),
   ),
   appBarTheme: AppBarTheme(
-    color: Color(0xff6468F6),
+    color: ColorManager.appBar,
     titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
     iconTheme: const IconThemeData(color: Colors.white),
   ),
